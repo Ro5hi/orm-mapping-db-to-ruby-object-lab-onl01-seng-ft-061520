@@ -43,53 +43,53 @@ class Student
     .first
   end
   
-  def self.students_below_12th_grade
-    sql = <<-SQL
-      SELECT * 
-      FROM students 
-      WHERE grade < 12 
-    SQL
+  # def self.students_below_12th_grade
+  #   sql = <<-SQL
+  #     SELECT * 
+  #     FROM students 
+  #     WHERE grade < 12 
+  #   SQL
 
-    DB[:conn].execute(sql,name).map do |row|
-      self.new_from_db(row)
-    end 
+  #   DB[:conn].execute(sql,name).map do |row|
+  #     self.new_from_db(row)
+  #   end 
   
-  def self.students_in_grade_9
-    sql = <<-SQL
-      SELECT * 
-      FROM students 
-      WHERE grade = 9; 
-    SQL
+  # def self.students_in_grade_9
+  #   sql = <<-SQL
+  #     SELECT * 
+  #     FROM students 
+  #     WHERE grade = 9; 
+  #   SQL
 
-    DB[:conn].execute(sql,name).map do |row|
-      self.new_from_db(row)
-    end 
+  #   DB[:conn].execute(sql,name).map do |row|
+  #     self.new_from_db(row)
+  #   end 
   
-  def self.students_in_grade_10(number)
-    sql = <<-SQL
-      SELECT * 
-      FROM students 
-      WHERE grade = 10 
-      ORDER BY students.id 
-      LIMIT ? 
-    SQL
+  # def self.students_in_grade_10(number)
+  #   sql = <<-SQL
+  #     SELECT * 
+  #     FROM students 
+  #     WHERE grade = 10 
+  #     ORDER BY students.id 
+  #     LIMIT ? 
+  #   SQL
 
-    DB[:conn].execute(sql,name).map do |row|
-      self.new_from_db(row)
-    end 
+  #   DB[:conn].execute(sql,name).map do |row|
+  #     self.new_from_db(row)
+  #   end 
   
-  def self.first_student_in_grade_10 
-    sql = <<-SQL
-      SELECT * 
-      FROM students 
-      WHERE grade = 10 
-      ORDER BY students.id LIMIT 1 
-    SQL
+  # def self.first_student_in_grade_10 
+  #   sql = <<-SQL
+  #     SELECT * 
+  #     FROM students 
+  #     WHERE grade = 10 
+  #     ORDER BY students.id LIMIT 1 
+  #   SQL
 
-    DB[:conn].execute(sql,name).map do |row|
-      self.new_from_db(row)
-    end 
-  end 
+  #   DB[:conn].execute(sql,name).map do |row|
+  #     self.new_from_db(row)
+  #   end 
+  # end 
    
   def save
     sql = <<-SQL
